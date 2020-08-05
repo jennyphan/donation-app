@@ -18,7 +18,7 @@ const DonationAlert: React.FunctionComponent<DonationAlertProps> = ({
     return (
         <div>
             {donationAmountNeeded > 0 && (
-                <DonationAlertWrapper icon={false} severity="info">
+                <DonationAlertWrapper role="alert" icon={false} severity="info">
                     <NumberFormatWrapper
                         value={donationAmountNeeded}
                         displayType={'text'}

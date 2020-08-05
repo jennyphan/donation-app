@@ -12,10 +12,25 @@ export const DonateNowButton = styled(Button)`
     color: ${(props) => props.theme.white};
     text-transform: none;
     font-family: 'IBM Plex Sans', sans-serif;
-    font-weight: 400;
+    font-weight: 400px;
+    box-shadow: none;
+    &:hover {
+        background-color: ${(props) => props.theme.mint80};
+    }
 `;
 
 export const DonateOutlinedInput = styled(OutlinedInput)`
     font-weight: 700;
     font-family: 'IBM Plex Sans', sans-serif;
+`;
+
+export const DonationHiddenLabel = styled.label`
+    position: absolute;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    width: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
 `;

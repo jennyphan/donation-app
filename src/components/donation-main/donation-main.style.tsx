@@ -15,7 +15,7 @@ export const DonationWrapper = styled.div`
     justify-content: center;
 `;
 export const DonationMainWrapper = styled.div`
-    padding-top: 50px;
+    padding-top: 40px;
     width: 400px;
     font-family: 'IBM Plex Sans', sans-serif;
     font-weight: 400;
