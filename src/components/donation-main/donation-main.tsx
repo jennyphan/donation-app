@@ -1,12 +1,8 @@
 import React from 'react';
-import DonateNow from '../donate-now/donate-now';
 import DonationAlert from '../donation-alert/donation-alert';
-import DonationProgress from '../donation-progress/donation-progress';
-import DonationText from '../donation-text/donation-text';
+import DonationCard from '../donation-card/donation-card';
 import {
     DonationBox,
-    DonationCard,
-    DonationCardBody,
     DonationContainer,
     DonationMainWrapper,
     DonationWrapper
@@ -25,21 +21,13 @@ const DonationMain: React.FunctionComponent = (): JSX.Element => {
                                 totalAmountDonated={totalAmountDonated}
                                 donationGoal={donationGoal}
                             />
-                            <DonationCard>
-                                <DonationProgress
-                                    totalAmountDonated={totalAmountDonated}
-                                    donationGoal={donationGoal}
-                                />
-                                <DonationCardBody>
-                                    <DonationText numberOfDonors={numberOfDonors} />
-                                    <DonateNow
-                                        setTotalAmountDonated={setTotalAmountDonated}
-                                        totalAmountDonated={totalAmountDonated}
-                                        setNumberOfDonors={setNumberOfDonors}
-                                        numberOfDonors={numberOfDonors}
-                                    />
-                                </DonationCardBody>
-                            </DonationCard>
+                            <DonationCard
+                                totalAmountDonated={totalAmountDonated}
+                                donationGoal={donationGoal}
+                                numberOfDonors={numberOfDonors}
+                                setTotalAmountDonated={setTotalAmountDonated}
+                                setNumberOfDonors={setNumberOfDonors}
+                            />
                         </DonationMainWrapper>
                     </DonationWrapper>
                 </DonationBox>
