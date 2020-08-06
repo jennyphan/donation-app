@@ -1,12 +1,9 @@
 import React from 'react';
+import {DonationContext} from '../../context/app-context';
 import {DonationText1, DonationText2, DonationTextWrapper, DonorCount} from './donation-text.style';
 
-interface DonationTextProps {
-    numberOfDonors: number;
-}
-const DonationText: React.FunctionComponent<DonationTextProps> = ({
-    numberOfDonors
-}): JSX.Element => {
+const DonationText: React.FunctionComponent = (): JSX.Element => {
+    const {numberOfDonors} = React.useContext(DonationContext);
     return (
         <>
             <DonationTextWrapper>

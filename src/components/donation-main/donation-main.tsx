@@ -8,26 +8,14 @@ import {
     DonationWrapper
 } from './donation-main.style';
 const DonationMain: React.FunctionComponent = (): JSX.Element => {
-    const [totalAmountDonated, setTotalAmountDonated] = React.useState(0);
-    const [numberOfDonors, setNumberOfDonors] = React.useState(0);
-    const donationGoal = 5000;
     return (
         <>
             <DonationContainer>
                 <DonationBox>
                     <DonationWrapper>
                         <DonationMainWrapper>
-                            <DonationAlert
-                                totalAmountDonated={totalAmountDonated}
-                                donationGoal={donationGoal}
-                            />
-                            <DonationCard
-                                totalAmountDonated={totalAmountDonated}
-                                donationGoal={donationGoal}
-                                numberOfDonors={numberOfDonors}
-                                setTotalAmountDonated={setTotalAmountDonated}
-                                setNumberOfDonors={setNumberOfDonors}
-                            />
+                            <DonationAlert />
+                            <DonationCard />
                         </DonationMainWrapper>
                     </DonationWrapper>
                 </DonationBox>

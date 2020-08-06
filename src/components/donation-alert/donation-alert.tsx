@@ -1,18 +1,18 @@
 import React from 'react';
+import {DonationContext} from '../context/app-context';
 import {DonationAlertWrapper, NumberFormatWrapper} from './donation-alert.style';
 
-interface DonationAlertProps {
-    totalAmountDonated: number;
-    donationGoal: number;
-}
-const DonationAlert: React.FunctionComponent<DonationAlertProps> = ({
-    totalAmountDonated,
-    donationGoal
-}): JSX.Element => {
-    const [donationAmountNeeded, setDonationAmountNeeded] = React.useState(5000);
+const DonationAlert: React.FunctionComponent = (): JSX.Element => {
+    const {donationGoal, totalAmountDonated} = React.useContext(DonationContext);
+
+    const [donationAmountNeeded, setDonationAmountNeeded] = React.useState(
+        donationGoal ? donationGoal : 0
+    );
 
     React.useEffect(() => {
-        setDonationAmountNeeded(donationGoal - totalAmountDonated);
+        if (donationGoal && totalAmountDonated) {
+            setDonationAmountNeeded(donationGoal - totalAmountDonated);
+        }
     }, [donationAmountNeeded, donationGoal, totalAmountDonated]);
 
     return (

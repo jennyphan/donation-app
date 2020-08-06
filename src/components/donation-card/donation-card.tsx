@@ -4,31 +4,13 @@ import {DonationCardBody, DonationCardWrapper} from './donation-card.style';
 import DonationProgress from './donation-progress/donation-progress';
 import DonationText from './donation-text/donation-text';
 
-interface DonationCardProps {
-    totalAmountDonated: number;
-    donationGoal: number;
-    setTotalAmountDonated: (amount: number) => void;
-    setNumberOfDonors: (cnt: number) => void;
-    numberOfDonors: number;
-}
-const DonationCard: React.FunctionComponent<DonationCardProps> = ({
-    totalAmountDonated,
-    donationGoal,
-    setTotalAmountDonated,
-    setNumberOfDonors,
-    numberOfDonors
-}): JSX.Element => {
+const DonationCard: React.FunctionComponent = ({}): JSX.Element => {
     return (
         <DonationCardWrapper>
-            <DonationProgress totalAmountDonated={totalAmountDonated} donationGoal={donationGoal} />
+            <DonationProgress />
             <DonationCardBody>
-                <DonationText numberOfDonors={numberOfDonors} />
-                <DonateNow
-                    setTotalAmountDonated={setTotalAmountDonated}
-                    totalAmountDonated={totalAmountDonated}
-                    setNumberOfDonors={setNumberOfDonors}
-                    numberOfDonors={numberOfDonors}
-                />
+                <DonationText />
+                <DonateNow />
             </DonationCardBody>
         </DonationCardWrapper>
     );

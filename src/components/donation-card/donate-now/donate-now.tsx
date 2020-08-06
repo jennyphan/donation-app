@@ -1,24 +1,20 @@
 import {FormControl, FormHelperText, InputAdornment, StylesProvider} from '@material-ui/core';
 import React from 'react';
+import {DonationContext} from '../../context/app-context';
 import {
     DonateNowButton,
     DonateNowWrapper,
     DonateOutlinedInput,
     DonationHiddenLabel
 } from './donate-now.style';
-interface DonateNowProps {
-    setTotalAmountDonated: (amount: number) => void;
-    totalAmountDonated: number;
-    setNumberOfDonors: (cnt: number) => void;
-    numberOfDonors: number;
-}
 
-const DonateNow: React.FunctionComponent<DonateNowProps> = ({
-    setTotalAmountDonated,
-    totalAmountDonated,
-    setNumberOfDonors,
-    numberOfDonors
-}): JSX.Element => {
+const DonateNow: React.FunctionComponent = ({}): JSX.Element => {
+    const {
+        totalAmountDonated,
+        numberOfDonors,
+        setNumberOfDonors,
+        setTotalAmountDonated
+    } = React.useContext(DonationContext);
     const textInput = React.useRef<HTMLInputElement>();
     const [amount, setAmount] = React.useState('');
     const [isAmountError, setIsAmountError] = React.useState(false);
@@ -41,8 +37,12 @@ const DonateNow: React.FunctionComponent<DonateNowProps> = ({
     };
 
     const handleGiveNowButtonClick = () => {
-        setTotalAmountDonated(totalAmountDonated + Number(amount));
-        setNumberOfDonors(numberOfDonors + 1);
+        if (totalAmountDonated != undefined && setTotalAmountDonated != undefined) {
+            setTotalAmountDonated(totalAmountDonated + Number(amount));
+        }
+        if (numberOfDonors != undefined && setNumberOfDonors != undefined) {
+            setNumberOfDonors(numberOfDonors + 1);
+        }
         setAmount('');
         setBtnDisabled(true);
         if (textInput?.current) {
